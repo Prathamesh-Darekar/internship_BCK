@@ -3,41 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Threads</title>
-    <script>
-      // BELOW CODE CHECKS WHETHER THE BROWSER IS COMPATIBLE OR NOT
-      if ("serial" in navigator) {
-        console.log("Ready to go!");
-      } else {
-        console.log("Your browser does not support Web Serial API.");
-      }
-
-      // FUNCTION TO SELECT THE PORT
-      async function SelectPort() {
-        try {
-          port = await navigator.serial.requestPort();
-          console.log("Port has been connected to the application");
-        } catch (e) {
-          alert("Please select a Port");
-          console.log(
-            `Encountered error while connecting to the port : ${e.message} `
-          );
-        }
-      }
-
-      // FUNCTION TO OPEN THE SELECTED PORT
-      async function openPort() {
-        try {
-          await port.open();
-          console.log(`Port has been opened for further operations `);
-        } catch (e) {
-          console.log(
-            `Encountered error while opening the port : ${e.message} `
-          );
-        }
-      }
-    </script>
-    <script src="./readFromFile.js"></script>
+    <title>Document</title>
+    <script src="./fileReader.js"></script>
+    <script src="./script.js"></script>
   </head>
   <body
     style="
@@ -50,6 +18,6 @@
   >
     <button onclick="SelectPort()">Connect the Port</button>
     <button onclick="openPort()">Open the Port</button>
-    <button onclick="startProcess()">Start Operation</button>
+    <button onclick="startOperation()">Start</button>
   </body>
 </html>
